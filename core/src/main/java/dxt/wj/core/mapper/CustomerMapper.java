@@ -1,6 +1,6 @@
 package dxt.wj.core.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import dxt.wj.core.models.CustomerBasic;
 import org.apache.ibatis.annotations.Mapper;
 /**
