@@ -1,4 +1,6 @@
-package dxt.wj.core.models;
+package dxt.wj.customer.models;
+
+
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

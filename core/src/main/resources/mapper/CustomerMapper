@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dxt.wj.core.mapper.CustomerMapper">
+    <insert id="instCu" >
+        insert into customer_basic
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="cu.customerId != null" >
+                customer_id,
+            </if>
+            <if test="cu.loginName != null" >
+                login_name,
+            </if>
+            <if test="cu.realName != null" >
+                real_name,
+            </if>
+            <if test="cu.password != null" >
+                password,
+            </if>
+            <if test="cu.sex != null" >
+                sex,
+            </if>
+            <if test="cu.createTime != null" >
+                create_time,
+            </if>
+            <if test="cu.loginStatus != null" >
+                login_status,
+            </if>
+            <if test="cu.flag != null" >
+                flag,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="cu.customerId != null" >
+               #{cu.customerId },
+            </if>
+            <if test="cu.loginName != null" >
+                #{cu.loginName },
+            </if>
+            <if test="cu.realName != null" >
+                #{cu.realName },
+            </if>
+            <if test="cu.password != null" >
+                #{cu.password },
+            </if>
+            <if test="cu.sex != null" >
+                #{cu.sex },
+            </if>
+            <if test="cu.createTime != null" >
+                #{cu.createTime },
+            </if>
+            <if test="cu.loginStatus != null" >
+                #{cu.loginStatus },
+            </if>
+            <if test="cu.flag != null" >
+               #{cu.flag},
+            </if>
+        </trim>
+    </insert>
+</mapper>

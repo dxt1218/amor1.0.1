@@ -1,16 +1,13 @@
-package dxt.wj.core.demo;
+package dxt.wj.customer;
 
-import dxt.wj.core.CoreApplication;
-import dxt.wj.core.models.CustomerBasic;
-import dxt.wj.core.service.imp.CustomerServiceImp;
-import org.springframework.boot.SpringApplication;
+import dxt.wj.customer.models.CustomerBasic;
+import dxt.wj.customer.service.imp.CustomerServiceImp;
 
 import java.util.Date;
 import java.util.UUID;
 
-public class TestClass {
+public class demo {
     public static void main(String[] args) {
-        CustomerServiceImp customerServiceImp =new CustomerServiceImp();
         CustomerBasic customerBasic =new CustomerBasic();
         customerBasic.setCustomerId(UUID.randomUUID().toString());
         customerBasic.setCreateTime(new Date());
@@ -21,6 +18,9 @@ public class TestClass {
         customerBasic.setPassword("1314521");
         customerBasic.setSex("1");
         System.out.println(customerBasic.toString());
+        CustomerServiceImp customerServiceImp =new CustomerServiceImp();
         customerServiceImp.instCu(customerBasic);
     }
+
 }
+
