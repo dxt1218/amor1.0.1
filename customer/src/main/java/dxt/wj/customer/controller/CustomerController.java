@@ -1,13 +1,20 @@
-package dxt.wj.customer;
+package dxt.wj.customer.controller;
 
-import dxt.wj.customer.models.CustomerBasic;
+import dxt.wj.customer.models.po.CustomerBasic;
 import dxt.wj.customer.service.imp.CustomerServiceImp;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 import java.util.UUID;
 
-public class demo {
-    public static void main(String[] args) {
+@RestController
+public class CustomerController {
+    @Autowired
+    CustomerServiceImp customerService;
+    @RequestMapping("/aa")
+    public void ins(){
         CustomerBasic customerBasic =new CustomerBasic();
         customerBasic.setCustomerId(UUID.randomUUID().toString());
         customerBasic.setCreateTime(new Date());
@@ -18,9 +25,7 @@ public class demo {
         customerBasic.setPassword("1314521");
         customerBasic.setSex("1");
         System.out.println(customerBasic.toString());
-        CustomerServiceImp customerServiceImp =new CustomerServiceImp();
-        customerServiceImp.instCu(customerBasic);
+       // customerService.instCu(customerBasic);
+        customerService.instCu(customerBasic);
     }
-
 }
-

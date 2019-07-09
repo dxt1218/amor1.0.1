@@ -1,4 +1,4 @@
-package dxt.wj.customer.models;
+package dxt.wj.customer.models.po;
 
 
 
@@ -16,7 +16,7 @@ import java.util.Date;
  * 会员信息表
  * */
 @Data
-@TableName("Customer_basic")
+@TableName("customer_basic")
 public class CustomerBasic extends Model<CustomerBasic> {
 
     @TableId(value = "customer_id",type = IdType.UUID)

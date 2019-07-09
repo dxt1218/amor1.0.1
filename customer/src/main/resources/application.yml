@@ -4,7 +4,7 @@ spring:
   application:
     name: amor-customer
   datasource:
-    url: jdbc:mysql://49.234.76.112:3306/amor?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+    url: jdbc:mysql://49.234.76.112:3306/amor?useSSL=false&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 1218
@@ -13,5 +13,7 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
 mybatis-plus:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package:
+  mapper-locations: classpath:mapper/*.xml # mapper.xml 包路径
+  type-aliases-package: dxt.wj.customer.models.po #别名
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #日志工具
