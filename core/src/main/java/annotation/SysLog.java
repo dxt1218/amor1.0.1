@@ -9,5 +9,8 @@ import java.lang.annotation.*;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)//编译生效
 public @interface SysLog {
+    /**方法名*/
     String value() default "";
+    /**模块名*/
+    String moduleName() default "";
 }

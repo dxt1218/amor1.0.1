@@ -1,18 +1,28 @@
 package logAspect;
 
+
+import lombok.extern.slf4j.Slf4j;
 import models.Rlog;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
  * 日志切面
  * */
+@Slf4j
 public class LogAspect {
     private  static final ThreadLocal<Date> beginTimeThreadLocal = new ThreadLocal<Date>();//泛型定义 线程里的类型
 
     //请求
+    @Autowired(required=false)
+    private HttpServletRequest request;
+
 
     //业务层日志
     public void contorllerAspect(){
@@ -28,10 +38,17 @@ public class LogAspect {
     @Around("contorllerAspect()")
     public Object doContorller(ProceedingJoinPoint joinPoint){
         Object result = null;
-        Rlog rlog =new Rlog();
-        Date beginTime=new Date();
-        beginTimeThreadLocal.set(beginTime);
-
+        try {
+            Rlog rlog =new Rlog();
+            Date beginTime=new Date();
+            //线程绑定变量（date）
+            beginTimeThreadLocal.set(beginTime);
+            //TODO 获取用户信息 当前无法获取
+            result = joinPoint.proceed();//执行被环绕的对象
+            log.info("joinPoint.proceed()==="+result.toString());
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
         return result;
     }
 }
