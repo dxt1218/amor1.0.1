@@ -1,6 +1,7 @@
 package logAspect;
 
 
+import annotation.SysLog;
 import lombok.extern.slf4j.Slf4j;
 import models.Rlog;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -66,8 +67,18 @@ public class LogAspect {
         Class targetClass = Class.forName(className);
         //获取类方法
         Method []methods=targetClass.getMethods();
+        //获取相关参数
+        Object []params=joinPoint.getArgs();
         for(Method method:methods){
-
+            if(method.getName().equals(targetMethodName)){
+                Class[] classParams = method.getParameterTypes();//获取方法参数数组
+                if(classParams.length==params.length){ //判断参数个数是否相同  方法的重载 方法名相同参数不同
+                    if(method.getAnnotation(SysLog.class)!=null){ //从注解中获取参数说明
+                       name=method.getAnnotation(SysLog.class).value();
+                       break;
+                    }
+                }
+            }
         }
         return name;
     }
