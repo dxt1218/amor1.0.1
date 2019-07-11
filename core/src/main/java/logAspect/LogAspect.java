@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Method;
 import java.util.Date;
 
 /**
@@ -20,7 +21,7 @@ public class LogAspect {
     private  static final ThreadLocal<Date> beginTimeThreadLocal = new ThreadLocal<Date>();//泛型定义 线程里的类型
 
     //请求
-    @Autowired(required=false)
+    @Autowired(required=false)//不强行注入
     private HttpServletRequest request;
 
 
@@ -46,9 +47,28 @@ public class LogAspect {
             //TODO 获取用户信息 当前无法获取
             result = joinPoint.proceed();//执行被环绕的对象
             log.info("joinPoint.proceed()==="+result.toString());
+            rlog.setName(getSysLog(joinPoint));
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
         return result;
+    }
+
+
+    /**获取注解说明*/
+    public static String getSysLog(ProceedingJoinPoint joinPoint) throws ClassNotFoundException {
+        String name ="";
+        //目标完整类名
+        String className=joinPoint.getTarget().getClass().getName();
+        //获取方法名 （getName）
+        String targetMethodName =joinPoint.getSignature().getName();
+        //生成类对象
+        Class targetClass = Class.forName(className);
+        //获取类方法
+        Method []methods=targetClass.getMethods();
+        for(Method method:methods){
+
+        }
+        return name;
     }
 }
