@@ -14,6 +14,6 @@ spring:
       suffix: .jsp
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml # mapper.xml 包路径
-  type-aliases-package: dxt.wj.customer.models.po #别名
+  type-aliases-package: dxt.wj.customer.modelpo.po #别名
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #日志工具

@@ -1,4 +1,4 @@
-package models;
+package modelpo;
 
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
@@ -45,7 +45,7 @@ public class Rlog implements Serializable {
     /**
      * 花费时间
      * */
-    private Integer usedTime;
+    private Long usedTime;
 
     /**
      * 开始时间
@@ -59,7 +59,7 @@ public class Rlog implements Serializable {
     /**
      * 转换请求参数为json
      * */
-    public void setMapToParam(Map<String,Object> paramMap){
+    public void setMapToParam(Map<String,String[]> paramMap){
         this.requestParam= JSON.toJSONString(paramMap);
     }
 }
