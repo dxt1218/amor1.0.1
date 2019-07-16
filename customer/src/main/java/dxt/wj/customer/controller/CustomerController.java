@@ -24,8 +24,8 @@ public class CustomerController {
         customerBasic.setLoginStatus("0");
         customerBasic.setPassword("1314521");
         customerBasic.setSex("1");
-        System.out.println(customerBasic.toString());
        // customerService.instCu(customerBasic);
         customerService.instCu(customerBasic);
     }
+
 }

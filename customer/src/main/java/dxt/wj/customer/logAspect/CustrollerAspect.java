@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 
 /**
  * 日志切面
@@ -25,7 +24,7 @@ public class CustrollerAspect extends LogAspect {
 
 
     //业务层日志
-    @Pointcut("execution(* *..controller..*.*(..))")
+    @Pointcut("execution(* dxt.wj.customer.controller..*(..))")
     public void contorllerAspect(){
 
     }

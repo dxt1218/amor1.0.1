@@ -3,16 +3,13 @@ package logAspect;
 
 import annotation.SysLog;
 import lombok.extern.slf4j.Slf4j;
-import modelpo.Rlog;
+import modelpo.RLog;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
-
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
-
-
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -50,7 +47,7 @@ public class LogAspect {
     @Around("contorllerAspect()")
     public Object doContorller(ProceedingJoinPoint joinPoint){
         Object result = null;
-        Rlog rlog =new Rlog();
+        RLog rlog =new RLog();
         try {
             Date beginTime=new Date();
             //线程绑定变量（date）

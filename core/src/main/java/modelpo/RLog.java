@@ -10,7 +10,7 @@ import java.util.Map;
  * 日志参数
  * */
 @Data
-public class Rlog implements Serializable {
+public class RLog implements Serializable {
     /**
      * 方法操作名
      * */

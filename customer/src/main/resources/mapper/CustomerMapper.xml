@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dxt.wj.customer.mapper.CustomerMapper">
-    <insert id="instCu" parameterType="dxt.wj.customer.modelpo.po.CustomerBasic">
+    <insert id="instCu" parameterType="dxt.wj.customer.models.po.CustomerBasic">
         insert into customer_basic
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="cu.customerId != null" >
