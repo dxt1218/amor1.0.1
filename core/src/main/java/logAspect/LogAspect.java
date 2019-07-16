@@ -2,6 +2,7 @@ package logAspect;
 
 
 import annotation.SysLog;
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import modelpo.RLog;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -67,7 +68,9 @@ public class LogAspect {
             if(log.isDebugEnabled()){//预防在日志等级高于DeBug的情况下
                 rlog.setMapToParam(params);
             }
-            rlog.setRequestBody(getBodyParam(joinPoint).toString());
+            if(getBodyParam(joinPoint)!=null){
+                rlog.setRequestBody(JSON.toJSONString(getBodyParam(joinPoint)));
+            }
             log.info(rlog.toString());
         } catch (Throwable throwable) {
             log.error("请求"+rlog.toString());
