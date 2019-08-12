@@ -58,4 +58,23 @@
             </if>
         </trim>
     </insert>
+    <!--批量插入一个集合-->
+    <insert id="insertBatchCustomer" parameterType="java.util.List">
+        insert into  customer_basic
+        <!--<foreach collection="columnMap" open="(" separator="," item="it" close=")">
+            ${it}
+        </foreach>-->
+        (customer_id, login_name, real_name, password, sex, create_time, login_status, flag )
+        values
+        <foreach collection="list" separator="," close=")" item="it" open="(" index="index" >
+            #{it.customerId},
+            #{it.loginName},
+            #{it.realName},
+            #{it.password},
+            #{it.sex },
+            #{it.createTime},
+            #{it.loginStatus},
+            #{it.flag}
+        </foreach>
+    </insert>
 </mapper>
