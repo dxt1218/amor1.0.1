@@ -66,7 +66,8 @@
         </foreach>-->
         (customer_id, login_name, real_name, password, sex, create_time, login_status, flag )
         values
-        <foreach collection="list" separator="," close=")" item="it" open="(" index="index" >
+        <foreach collection="list" separator=","  item="it"  index="it.customerId" >
+            (
             #{it.customerId},
             #{it.loginName},
             #{it.realName},
@@ -75,6 +76,7 @@
             #{it.createTime},
             #{it.loginStatus},
             #{it.flag}
+            )
         </foreach>
     </insert>
 </mapper>
