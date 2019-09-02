@@ -9,6 +9,7 @@ import dxt.wj.customer.mapper.CustomerMapper;
 import dxt.wj.customer.models.dto.ParamList;
 import dxt.wj.customer.models.po.CustomerBasic;
 import dxt.wj.customer.service.CustomerService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -49,5 +50,10 @@ public class CustomerServiceImp  extends ServiceImpl<CustomerMapper, CustomerBas
             }
         }
         return map;
+    }
+    @Cacheable("user")
+    public  List<CustomerBasic>  getUserList(){
+        List<CustomerBasic> list = this.list();
+        return list;
     }
 }

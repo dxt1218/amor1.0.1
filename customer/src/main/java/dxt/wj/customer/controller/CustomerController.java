@@ -5,6 +5,7 @@ import dxt.wj.customer.models.po.CustomerBasic;
 import dxt.wj.customer.service.imp.CustomerServiceImp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,9 @@ public class CustomerController {
         log.info("插入："+count+"条");
         return count;
     }
+    /**
+     * redis 调用集合 操作缓存
+     * */
     @GetMapping("test")
     public String redisTes(){
         List<CustomerBasic> list =customerService.list();
@@ -52,4 +56,11 @@ public class CustomerController {
         System.out.println("新：==="+redisTemplate.opsForValue().get(list.get(0).getCustomerId()));*/
         return aa.toString();
     }
+
+    @GetMapping("test0")
+    public List<CustomerBasic> redisTes1(){
+        //List<CustomerBasic> list =customerService.list();
+        return customerService.getUserList();
+    }
+
 }
