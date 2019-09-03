@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 80
 spring:
   application:
     name: amor-customer
@@ -19,7 +19,17 @@ spring:
     password: 1218
     port: 6379
     database: 6
-
+  thymeleaf:
+    #开发时关闭缓存，不然没发看到实时页面
+    cache: false
+    #spring.thymeleaf.mode的默认值是HTML5，其实是一个很严格的检查，改为LEGACYHTML5可以得到一个可能更友好亲切的格式要求。
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
 
 
 mybatis-plus:
