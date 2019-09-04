@@ -8,5 +8,5 @@ import org.springframework.stereotype.Component;
 @Component
 public class WebConst {
 
-    public static final String INDEX_URL="home/index";
+    public static final String INDEX_URL="home/index0";
 }

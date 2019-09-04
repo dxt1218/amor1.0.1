@@ -33,6 +33,11 @@ public class RLog implements Serializable {
     private String requestParam;
 
     /**
+     * 请求ip
+     * */
+    private String ipRe;
+
+    /**
      * 请求参数
      * */
     private String requestBody;

@@ -11,6 +11,8 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
+import utils.IpUtil;
+
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -64,6 +66,8 @@ public class LogAspect {
             rlog.setRequestUrl(request.getRequestURI());
             //请求方式（get，POST）
             rlog.setRequestType(request.getMethod());
+            //获取ip
+            rlog.setIpRe(IpUtil.getRealIp(request));
             Map<String,String[]>params =request.getParameterMap();//获取请求参数
             if(log.isDebugEnabled()){//预防在日志等级高于DeBug的情况下
                 rlog.setMapToParam(params);
