@@ -43,6 +43,8 @@ public class CustomerBasic extends Model<CustomerBasic> {
     @TableField("flag")
     private String flag;
 
+    @TableField("memorial_date")
+    private Date memorialDate;
 
     @Override
     protected Serializable pkVal() {

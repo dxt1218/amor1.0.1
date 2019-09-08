@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>洁宝amor</title>
+    <style>
+        body{text-align: center}
+        .centre{margin: 0 auto;}
+        .pp1{color: darksalmon;font-size: 80px}
+    </style>
+</head>
+<body>
+    <div>
+        <div class="centre">
+            <div class="centre-top-div" th:object="${dateParam} " >
+                <p class="pp1" th:text="'肥肥和洁宝已经相爱'+*{day } + '天'"/>
+                <p class="pp1" id="dateTime"></p>
+                <div>
+                    <img src="../../static/imge/003.gif" th:src="${'imge/003.gif'}"/>
+                    <img src="../../static/imge/002.jpg" th:src="${'imge/002.jpg'}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        Date.prototype.format = function (fmt) {
+            var o = {
+                "y+": this.getFullYear, //年
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds() //秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('hh个小时 mm分钟 ss秒');", 1000);
+    </script>
+</body>
+</html>

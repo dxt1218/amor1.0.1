@@ -8,10 +8,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 1218
-  mvc:
-    view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
 
 #redis配置
   redis:
@@ -30,8 +26,6 @@ spring:
     prefix: classpath:/templates/
     check-template-location: true
     suffix: .html
-
-
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml # mapper.xml 包路径
   type-aliases-package: dxt.wj.customer.modelpo.po #别名

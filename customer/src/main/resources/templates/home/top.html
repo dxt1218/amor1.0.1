@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>index</title>
-    <link th:href="@{/css/top.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css"  th:href="@{css/top.css}"/>
 </head>
 <body>
-    <div th:fragment="topp"  class="top">
+    <h1>外层</h1>
+    <div th:fragment="top"  class="top">
+        <h1>内层</h1>
         <ul class="header-list">
             <li>。。。</li>
         </ul>
