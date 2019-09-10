@@ -1,5 +1,5 @@
 var buttons = document.querySelectorAll(".radmenu a");
-
+var mm = document.getElementsByClassName("mm");
 for (var i=0, l=buttons.length; i<l; i++) {
     var button = buttons[i];
     button.onclick = setSelected;
