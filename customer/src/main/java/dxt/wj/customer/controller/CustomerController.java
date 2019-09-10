@@ -50,10 +50,6 @@ public class CustomerController {
         redisTemplate.opsForList().rightPush("lis2",list);
         List aa= (List) redisTemplate.opsForList().rightPop("list");
         System.out.println("集合:"+aa.toString());
-        //String str=redisTemplate.opsForValue().get(list.get(0).getCustomerId());
-      /*  System.out.println("str:"+str);
-        redisTemplate.opsForValue().append(list.get(0).getCustomerId(),"+++嘿嘿");
-        System.out.println("新：==="+redisTemplate.opsForValue().get(list.get(0).getCustomerId()));*/
         return aa.toString();
     }
 

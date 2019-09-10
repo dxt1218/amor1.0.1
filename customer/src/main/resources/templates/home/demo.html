@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>动态图</title>
+<head th:fragment="menu_css">
+    <link  rel="stylesheet" href="../../static/css/reset.css"th:href="@{static/css/reset.css}">
+    <link  rel="stylesheet" href="../../static/css/style.css" media="screen" type="text/css" th:href="@{static/css/style.css}"/>
+</head>
+<body>
+<div class="radmenu" th:fragment="menu" ><a href="#" class="show">START</a>
+    <ul>
+        <li>
+            <a href="#" class="">Menu 1</a>
+            <ul>
+                <li><a href="#">Sub Menu 1</a></li>
+                <li><a href="#">Sub Menu 2</a></li>
+                <li><a href="#">Sub Menu 3</a></li>
+                <li><a href="#">Sub Menu 4</a></li>
+                <li><a href="#">Sub Menu 5</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Menu 2</a>
+            <ul>
+                <li><a href="#">Sub Menu 1</a></li>
+                <li><a href="#">Sub Menu 2</a></li>
+                <li><a href="#">Sub Menu 3</a></li>
+                <li><a href="#">Sub Menu 4</a></li>
+                <li><a href="#">Sub Menu 5</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Menu 3</a>
+            <ul>
+                <li><a href="#">Sub Menu 1</a></li>
+                <li><a href="#">Sub Menu 2</a></li>
+                <li><a href="#">Sub Menu 3</a></li>
+                <li><a href="#">Sub Menu 4</a></li>
+                <li><a href="#">Sub Menu 5</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="">Menu 4</a>
+            <ul>
+                <li><a href="#">Sub Menu 1</a></li>
+                <li><a href="#">Sub Menu 2</a></li>
+                <li><a href="#">Sub Menu 3</a></li>
+                <li><a href="#">Sub Menu 4</a></li>
+                <li><a href="#">Sub Menu 5</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Menu 5</a>
+            <ul>
+                <li><a href="#">Sub Menu 1</a></li>
+                <li><a href="#">Sub Menu 2</a></li>
+                <li><a href="#">Sub Menu 3</a></li>
+                <li><a href="#">Sub Menu 4</a></li>
+                <li><a href="#">Sub Menu 5</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script src="../../static/js/demo.js">
+    </script>
+</div>
+</body>
+</html>

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>index</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>home首页</title>
+<link rel="stylesheet" type="text/css"  th:href="@{static/css/top.css}" />
+<link rel="stylesheet" type="text/css"  th:href="@{static/css/home.css}" />
+<head th:include="home/demo::menu_css">
 </head>
 <body>
     <div>
-        <div th:include="home/top::top"></div>
+        <div th:include="home/top::xuanzelan"></div>
+        <div th:replace="home/demo::menu"></div>
         <div class="centre">
             <div>
-
+                <img th:src="@{'static/imge/001.jpg'}"/>
             </div>
         </div>
     </div>

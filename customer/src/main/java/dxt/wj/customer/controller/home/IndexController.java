@@ -22,7 +22,7 @@ public class IndexController {
     @Autowired
     CustomerServiceImp customerService;
 
-    @GetMapping("/aa")
+    @GetMapping("/")
     public String index(Model model){
         //model.addAttribute("name","tiantian");
         return WebConst.INDEX_URL;
@@ -30,7 +30,7 @@ public class IndexController {
     /**
      * 纪念日首页
      * */
-    @GetMapping("/")
+    @GetMapping("/bb")
     public String indexMemorial(Model model){
         CustomerBasic customerBasic = customerService.getById("0000");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
