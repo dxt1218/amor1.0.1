@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>amor洁宝</title>
-</head>
+<meta charset="UTF-8">
+<title>amor</title>
+<head th:replace="home/top::top-css"></head>
+<style th:replace="demo/top-dian::dian-style">
+</style>
 <body>
-    <P th:text="'加油哦 宝宝  我在上海等你~ 嘿嘿~'">first html</P>
-    <img th:src="@{'imge/001.jpg'}">
-    <img th:src="@{'imge/002.jpg'}">
+    <div th:include="home/top::xuanzelan"></div>
 </body>
+<script th:replace="demo/top-dian::dian-js"/>
 </html>
