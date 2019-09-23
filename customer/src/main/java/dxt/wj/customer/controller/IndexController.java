@@ -1,4 +1,4 @@
-package dxt.wj.customer.controller.home;
+package dxt.wj.customer.controller;
 
 import dxt.wj.customer.constant.WebConst;
 import dxt.wj.customer.models.dto.DateParam;
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,12 +22,22 @@ public class IndexController {
 
     @Autowired
     CustomerServiceImp customerService;
-
+    /**
+     * 首页
+     * */
     @GetMapping("/")
-    public String index(Model model){
-        //model.addAttribute("name","tiantian");
+    public String index(){
         return WebConst.INDEX_URL;
     }
+    /**
+     * 注册
+     * */
+    @PostMapping("/register")
+    public String register(){
+        return "";
+    }
+
+
     /**
      * 纪念日首页
      * */
@@ -37,7 +48,7 @@ public class IndexController {
         DateParam dateParam = new DateParam();
 
         Date nowDate =new Date();
-        Date memDate = customerBasic.getMemorialDate();
+        Date memDate = new Date("2018 12-21");
         dateParam.setNowDate(sdf.format(nowDate));
         dateParam.setStartDate(sdf.format(memDate));
         Calendar nowCalendar = Calendar.getInstance();

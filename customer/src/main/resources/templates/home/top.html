@@ -3,22 +3,44 @@
 <meta charset="UTF-8">
 <head th:fragment="top-css">
     <!--默认样式-->
-    <link rel="stylesheet" href="../../static/css/reset.min.top.css"th:href="@{static/css/reset.min.top.css}">
+    <link rel="stylesheet" href="../../static/css/reset.min.top.css"th:href="@{css/reset.min.top.css}">
     <!--图标样式-->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css'>
     <!--主要样式-->
-    <link rel="stylesheet" href="../../static/css/top-left.css" th:href="@{static/css/top-left.css}">
+    <link rel="stylesheet" href="../../static/css/top-left.css" th:href="@{css/top-left.css}">
+    <script type="text/javascript">
+        function Show_Hidden(obj) {
+            if (obj.style.display == "block") {
+                obj.style.display = 'none';
+            }
+            else {
+                obj.style.display = 'block';
+            }
+        }
+
+        window.onload = function () {
+            var olink = document.getElementsByClassName("bubbly-button")[0];
+            var odiv = document.getElementsByClassName("page")[0];
+            var up = document.getElementsByClassName("acc-settings")[0];
+            olink.onclick = function () {
+                Show_Hidden(odiv);
+            }
+            up.onclick = function () {
+                Show_Hidden(odiv);
+            }
+        }
+    </script>
 </head>
 
 <body>
     <div th:fragment="xuanzelan"  class="top">
         <span th:replace="demo/top-dian::dian"></span>
-        <div class="page">
+        <div class="page" >
             <!--左侧导航-->
             <div class="navbar">
                 <div class="user">
-                    <div class="user__pic"><img class="head-photo" th:src="@{'stjpg'}" onerror="this.style.display='none'"/></div>
-                    <div class="user__name">登录名</div>
+                    <div class="user__pic"><img class="head-photo" th:src="@{'00.jpg'}" onerror="this.style.display='none'"/></div>
+                    <div class="user__name">洁宝</div>
                 </div>
                 <div class="bar">
                     <div class="options">
@@ -31,13 +53,12 @@
                     </div>
                     <div class="settings">
                         <ul>
-                            <li class="acc-settings"><i class="fas fa-cog"></i> Account Settings</li>
+                            <li class="acc-settings"><i class="fas fa-cog"></i> Fold</li>
                             <li><i class="fas fa-sign-out-alt"></i> Logout</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
             <!--主要内容部分-->
             <div class="content"></div>
         </div>

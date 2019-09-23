@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <title>隐藏和显示</title>
+    <style type="text/css">
+        #thediv {
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: green;
+        }
+    </style>
+    <script type="text/javascript">
+        function Show_Hidden(obj) {
+            if (obj.style.display == "block") {
+                obj.style.display = 'none';
+            }
+            else {
+                obj.style.display = 'block';
+            }
+        }
+
+        window.onload = function () {
+            var olink = document.getElementById("link");
+            var odiv = document.getElementById("thediv");
+            olink.onclick = function () {
+                Show_Hidden(odiv);
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<html>
+
+<head>
+
+    <meta charset="gb2312">
+    <title>隐藏和显示</title>
+    <style type="text/css">
+        #thediv {
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: green;
+        }
+    </style>
+    <script type="text/javascript">
+        function Show_Hidden(obj) {
+            if (obj.style.display == "block") {
+                obj.style.display = 'none';
+            }
+            else {
+                obj.style.display = 'block';
+            }
+        }
+
+        window.onload = function () {
+            var olink = document.getElementById("link");
+            var odiv = document.getElementById("thediv");
+            olink.onclick = function () {
+                Show_Hidden(odiv);
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<a href="#" id="link">显示\隐藏切换</a>
+<div id="thediv" style="display:block">欢迎您</div>
+</body>
+</html>
+</body>
+</html>

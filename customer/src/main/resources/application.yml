@@ -25,10 +25,9 @@ spring:
     prefix: classpath:/templates/
     check-template-location: true
     suffix: .html
-  #静态资源 通过static路径匹配 加载 静态资源
-  mvc:
-    static-path-pattern: /static/**
-
+  #静态资源  配置省略 资源路径
+  resources:
+    static-locations: file:/home/upload/ ,classpath:/static/
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml # mapper.xml 包路径
   type-aliases-package: dxt.wj.customer.modelpo.po #别名

@@ -5,6 +5,7 @@
   font-family: Lato;
   background: grey;
   position: relative;
+  display: none;
 }
 .navbar .user__pic {
   width: 4rem;
