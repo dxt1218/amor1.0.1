@@ -29,12 +29,13 @@ public class IndexController {
     public String index(){
         return WebConst.INDEX_URL;
     }
+
     /**
      * 注册
      * */
-    @PostMapping("/register")
+    @GetMapping("/login")
     public String register(){
-        return "";
+        return WebConst.LOGIN_URL;
     }
 
 
