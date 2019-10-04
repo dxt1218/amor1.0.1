@@ -3,8 +3,8 @@
 <meta charset="UTF-8">
 <title>动态图</title>
 <head th:fragment="menu_css">
-    <link  rel="stylesheet" href="../../static/css/reset.css"th:href="@{static/css/reset.css}">
-    <link  rel="stylesheet" href="../../static/css/style.css" media="screen" type="text/css" th:href="@{static/css/style.css}"/>
+    <link  rel="stylesheet" th:href="@{css/reset.css}">
+    <link  rel="stylesheet" media="screen" type="text/css" th:href="@{css/style.css}"/>
 </head>
 <body>
 <div class="radmenu" th:fragment="menu" ><a href="#" class="show">我家猪宝</a>
@@ -60,8 +60,7 @@
             </ul>
         </li>
     </ul>
-    <script src="../../static/js/demo.js">
-    </script>
+    <script th:src="@{js/demo.js}"></script>
 </div>
 </body>
 </html>

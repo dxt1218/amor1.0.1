@@ -37,7 +37,13 @@ public class IndexController {
     public String register(){
         return WebConst.LOGIN_URL;
     }
-
+    /**
+     * 纪念日
+     * */
+    @GetMapping("/demo")
+    public String memorial(){
+        return "home/demo";
+    }
 
     /**
      * 纪念日首页
