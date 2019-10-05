@@ -1,14 +1,24 @@
 package dxt.wj.customer.controller;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dxt.wj.customer.constant.WebConst;
 import dxt.wj.customer.models.dto.DateParam;
+import dxt.wj.customer.models.dto.RegisterParam;
 import dxt.wj.customer.models.po.CustomerBasic;
 import dxt.wj.customer.service.imp.CustomerServiceImp;
+import helper.ModelHelper;
+import helper.ResHelper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import utils.ObjJsonUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,6 +28,7 @@ import java.util.Date;
  * 首页控制
  * */
 @Controller
+@Slf4j
 public class IndexController {
 
     @Autowired
@@ -31,11 +42,28 @@ public class IndexController {
     }
 
     /**
-     * 注册
+     * 登录页
      * */
     @GetMapping("/login")
-    public String register(){
+    public String loginHtml(){
         return WebConst.LOGIN_URL;
+    }
+
+    /**
+     * 注册信息录入
+     * */
+    @PostMapping("/login/register")
+    @ResponseBody
+    public ResHelper register(@RequestBody RegisterParam param){
+        log.info("入参："+param);
+        if(StringUtils.isEmpty(param.getLoginName())){
+            return ResHelper.success("1111","登录昵称不能为空");
+        }
+        CustomerBasic customerBasic =(CustomerBasic)ObjJsonUtil.objToObj(param,CustomerBasic.class);
+        ModelHelper.initModel(customerBasic);
+        log.info("customerService == "+customerBasic);
+        customerService.save(customerBasic);
+        return ResHelper.success("0000");
     }
     /**
      * 纪念日

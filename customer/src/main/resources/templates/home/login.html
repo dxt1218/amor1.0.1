@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>登录</title>
     <link rel="stylesheet" th:href="@{css/login.css}">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
                         <label>密码 <a href="#" class="forgot-link">忘记密码?</a></label>
                         <input type="password" name="password" autocomplete="current-password" class="lowin-input">
                     </div>
-                    <button class="lowin-btn login-btn">
+                    <button class="lowin-btn login-btn "  type="button">
                         登 录
                     </button>
 
@@ -38,28 +39,28 @@
 
         <div class="lowin-box lowin-register">
             <div class="lowin-box-inner">
-                <form>
+                <form >
                     <p>让我们创建您的帐户</p>
                     <div class="lowin-group">
-                        <label>姓名</label>
-                        <input type="text" name="name" autocomplete="name" class="lowin-input">
+                        <label>昵称</label>
+                        <input type="text" name="name" autocomplete="name" class="lowin-input loginName">
                     </div>
                     <div class="lowin-group">
-                        <label class="sex" for="man" style="color:rgba(255, 100, 100, .55)"><input id="man" type="radio" checked="checked" name="1" /> Boy </label>  <label class="sex" for="woman" style="color:rgba(255, 100, 100, .55)"><input id="woman" type="radio"  name="1"/> Girl </label>
+                        <label class="sex" for="man" style="color:rgba(255, 100, 100, .55)"><input id="man" type="radio" checked="checked" name="1" value="1" /> Boy </label>  <label class="sex" for="woman" style="color:rgba(255, 100, 100, .55)"><input id="woman" type="radio"  name="1" value="0"/> Girl </label>
                     </div>
                     <div class="lowin-group">
                         <label>邮箱</label>
-                        <input type="email" autocomplete="email" name="email" class="lowin-input">
+                        <input type="email" autocomplete="email" name="email" class="lowin-input e_email">
                     </div>
                     <div class="lowin-group">
                         <label>密码</label>
-                        <input type="password" name="password" autocomplete="current-password" class="lowin-input">
+                        <input type="password" name="password" autocomplete="current-password" class="lowin-input in_password">
                     </div>
                     <div class="lowin-group">
                         <label>手机号</label>
-                        <input type="text" name="phone" autocomplete="phone" class="lowin-input">
+                        <input type="text" name="phone" autocomplete="phone" class="lowin-input in_phone">
                     </div>
-                    <button class="lowin-btn">
+                    <button class="lowin-btn "  type="button"  onclick="ajax_submit()">
                         注 册
                     </button>
 
@@ -81,6 +82,37 @@
         login_url: '#login',
         forgot_url: '#forgot'
     });
+    function ajax_submit(){
+
+        var loginName = $(".loginName").val();
+        var sex = $("input:radio[name='1']:checked").val();
+        var email = $(".e_email").val();
+        var password = $(".in_password").val();
+        var phone = $(".in_phone").val();
+
+        var param = {"loginName":loginName,"sex":sex,"email":email,"password":password,"phone":phone};
+        console.log("请求 param = "+JSON.stringify(param))
+        $.ajax({
+            type : "post" ,
+            url : "/login/register" ,
+            dataType : 'json' ,
+            contentType: "application/json",
+            async: false ,
+            cache : false ,
+            data : JSON.stringify(param),
+            success:function (result) {
+                console.log("返回："+JSON.stringify(result));
+                if(result.resCode == "0000"){
+                    alert("注册成功 "+result.msg)
+                    window.location.reload()
+                }else {
+                    alert("注册失败 "+result.msg)
+                }
+            }
+        })
+    };
+
+
 </script>
 </body>
 </html>

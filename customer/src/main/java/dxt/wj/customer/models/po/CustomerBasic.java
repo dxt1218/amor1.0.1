@@ -34,12 +34,24 @@ public class CustomerBasic extends Model<CustomerBasic> {
     @TableField("sex")
     private String sex;
 
+    @TableField("phone")
+    private String phone;
+
+    @TableField("email")
+    private String email;
+
     @TableField("create_time")
     private Date createTime;
 
+    /**
+     * 登陆状态  0 未登录  1 以登录
+     * */
     @TableField("login_status")
     private String loginStatus;
 
+    /**
+     * 有效  0 无效 1 有效
+     * */
     @TableField("flag")
     private String flag;
 
