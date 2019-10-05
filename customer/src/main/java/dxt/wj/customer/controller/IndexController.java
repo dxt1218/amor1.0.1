@@ -83,7 +83,7 @@ public class IndexController {
         DateParam dateParam = new DateParam();
 
         Date nowDate =new Date();
-        Date memDate = new Date("2018 12-21");
+        Date memDate = new Date("2018 12-21");//纪念日期  可变量
         dateParam.setNowDate(sdf.format(nowDate));
         dateParam.setStartDate(sdf.format(memDate));
         Calendar nowCalendar = Calendar.getInstance();
