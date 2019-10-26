@@ -14,7 +14,9 @@ import java.util.Map;
 
 @Configuration
 public class EmailConfig {
-
+    /**
+    * email 配置  QQ 网易邮箱
+    * */
     @Bean(name = "mailList")
     public Map<String,EmailParam> getEmail(){
         EmailParam qq = new EmailParam();
